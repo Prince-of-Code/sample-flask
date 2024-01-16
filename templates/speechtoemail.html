@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speech To Email</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='speechtoemail-style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+       
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">(: Speech To Email</a>
+        <nav class="nav-items">
+          <a href="/">Home</a>
+        </nav>
+      </header>
+      <main>
+      <div class="container">
+        <div class="leftContainer">
+            <div class="transcriptContainer">
+                <textarea id="transcriptArea"></textarea>
+                <div id="speechBubble" style="display: none;">Copied!</div>
+                <div id="butContainer">
+                    <button id="copyButton">Copy Text</button>
+                    <button id="clearButton">Clear</button>
+                    <button id="formatText">Format Text</button>
+                </div>
+            </div>
+        </div>
+
+    <div class="rightContainer">
+        <!-- Elements for the right container (30% width) -->
+        <div id="recContainer" class="recContainer">
+            <button id="recordButton">Record</button>
+            
+        </div>
+        <div class="recContainer2">
+            <button id="addTranscript" disabled>Add More</button>
+        </div>
+    </div>
+</main>
+</div>
+<script src="{{ url_for('static', filename='speechtoemail-script.js') }}"></script>
+</body>
+</html>
+
+
+
