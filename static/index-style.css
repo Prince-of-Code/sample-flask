@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+
+html, body {
+    height: 100%; /* Ensure the full height is used */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+  }
+
+  .image-button {
+    display: inline-block;
+    background-image: url('https://www.online-tech-tips.com/wp-content/uploads/2023/05/ai.jpeg');
+    background-size: cover;
+    background-position: center;
+    color: white; /* Text color */
+    padding: 30px 30px; /* Button size */
+    text-decoration: none; /* Remove underline from links */
+    font-size: 34px; /* Text size */
+    border-radius: 5px; /* Optional: for rounded corners */
+    border: 3px solid #f5f5f5;
+}
+
+.image-button:hover {
+    background-image: url('https://www.online-tech-tips.com/wp-content/uploads/2023/05/ai.jpeg'); /* Optional: change image on hover */
+}
+
+    /* CSS for header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #f5f5f5;
+    }
+
+    .header .logo {
+      font-size: 25px;
+      font-family: 'Sriracha', cursive;
+      color: #000;
+      text-decoration: none;
+      margin-left: 30px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+    }
+
+    .nav-items {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #f5f5f5;
+      margin-right: 20px;
+    }
+
+    .nav-items a {
+        font-size: 20px;
+        text-decoration: none;
+        color: #000;
+        padding: 20px 20px;
+    }
+
+    /* CSS for main element */
+    /*.intro {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://miro.medium.com/v2/resize:fit:2800/format:webp/0*moUwnJbqAuBqCCpC.png");
+      background-size: cover;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+    }*/
+
+    .intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: calc(100vh - 60px); /* Adjust based on header height */
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://miro.medium.com/v2/resize:fit:2800/format:webp/0*moUwnJbqAuBqCCpC.png') no-repeat center bottom;
+        background-size: cover;
+        background-position: center;
+      }
+
+    .intro h2 {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+    }
+
+    .intro p {
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    h1 {
+        color: #f5f5f5;
+        font-size: 40px;
+        text-decoration: none;
+        font-family: 'Sriracha', cursive;
+    }
+
+    .intro button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+    }
+
+    
