@@ -23,7 +23,7 @@ def index():
 @app.route('/upload', methods=['POST'])
 def upload_audio():
     audio_file = request.files['audioFile']
-    file_path = os.path.join('static\\files', audio_file.filename)
+    file_path = os.path.join('static/files', audio_file.filename)
     audio_file.save(file_path)  # Save the file
 
     # Transcription logic
