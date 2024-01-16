@@ -3,7 +3,8 @@ from flask import render_template
 from openai import OpenAI
 import os
 
-openai.api_key = "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"
+openai.api_key = os.environ.get('OPENAI_API_KEY')
+
 
 client = OpenAI()
 
