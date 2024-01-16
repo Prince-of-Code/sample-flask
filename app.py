@@ -1,6 +1,10 @@
 from flask import Flask
 from flask import render_template
 from openai import OpenAI
+import os
+
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 client = OpenAI()
 
 app = Flask(__name__)
