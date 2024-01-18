@@ -11,6 +11,9 @@ const textArea = document.getElementById("transcriptArea");
 const recordButton = document.getElementById('recordButton');
 const addMore = document.getElementById('addTranscript');
 
+const recordButton2 = document.getElementById('MrecordButton');
+const textArea2 = document.getElementById("MtranscriptArea");
+
 // Password Check and Microphone Request
 if (!hasEnteredPassword) {
     let password = prompt("Please enter the password:");
@@ -70,6 +73,10 @@ document.getElementById("clearButton").addEventListener("click", function() {
     textArea.value = '';
 });
 
+document.getElementById("MclearButton").addEventListener("click", function() {
+    textArea2.value = '';
+});
+
 // Record Button Event Listeners
 recordButton.addEventListener('mousedown', handleButtonPress);
 recordButton.addEventListener('mouseup', handleButtonRelease);
@@ -81,6 +88,12 @@ addMore.addEventListener('mousedown', handleButtonPress);
 addMore.addEventListener('mouseup', handleButtonRelease);
 addMore.addEventListener('touchstart', handleButtonPress, {passive: true});
 addMore.addEventListener('touchend', handleButtonRelease);
+
+recordButton2.addEventListener('mousedown', handleButtonPress);
+recordButton2.addEventListener('mouseup', handleButtonRelease);
+recordButton2.addEventListener('touchstart', handleButtonPress, {passive: true});
+recordButton2.addEventListener('touchend', handleButtonRelease);
+
 
 // Record and Add More Buttons Handler Functions
 async function handleButtonPress(event) {
@@ -132,8 +145,13 @@ function sendAudioToServer(audioBlob, button) {
             if (button === addMore) {
                 insertAtCursor(data.transcript);
             } else {
-                textArea.value += data.transcript;
+                if (button === recordButton2) {
+                    textArea2.value += data.transcript;
+                } else {
+                    textArea.value += data.transcript;
+                }
             }
+            
             formatText();
         }
     }).catch(error => {
@@ -212,9 +230,49 @@ document.getElementById("copyButton").addEventListener("click", function() {
         });
 });
 
-document.getElementById("formatText").addEventListener("click", formatText);
+document.getElementById("McopyButton").addEventListener("click", function() {
+    navigator.clipboard.writeText(textArea2.value)
+        .then(() => {
+            MshowSpeechBubble();
+        })
+        .catch(err => {
+            console.error('Error in copying text: ', err);
+        });
+});
 
+document.getElementById("formatText").addEventListener("click", formatText);
+document.getElementById("MformatText").addEventListener("click", MformatText);
 // Speech Bubble Display Function
+
+function MformatText() {
+    let textArea2 = document.getElementById("MtranscriptArea");
+    let text1 = textArea2.value;
+
+    let formattedText = text1.replace(/\. /g, ".\n\n");
+    textArea2.value = formattedText;
+    let text = textArea2.value;
+    let lines = text.split("\n");
+    let processedLines = [];
+
+    for (let line of lines) {
+        while (line.length > 50) {
+            let spaceIndex = line.lastIndexOf(' ', 50);
+
+            if (spaceIndex > -1) {
+                // Break line at the space index
+                processedLines.push(line.substring(0, spaceIndex));
+                line = line.substring(spaceIndex + 1);
+            } else {
+                // If no space found within 50 characters, take the whole line
+                break;
+            }
+        }
+        processedLines.push(line);
+    }
+
+    textArea2.value = processedLines.join("\n");
+}
+
 function showSpeechBubble() {
     let speechBubble = document.getElementById("speechBubble");
     speechBubble.style.display = "block";
@@ -227,5 +285,17 @@ function showSpeechBubble() {
         speechBubble.style.display = "none";
     }, 3000);
 }
+function MshowSpeechBubble() {
+    let speechBubble = document.getElementById("MspeechBubble");
+    speechBubble.style.display = "block";
 
+    let textArea2 = document.getElementById("MtranscriptArea");
+    speechBubble.style.left = textArea2.offsetLeft + textArea2.offsetWidth / 2 - speechBubble2.offsetWidth / 2 + 'px';
+    speechBubble.style.top = textArea2.offsetTop + textArea2.offsetHeight / 2 - speechBubble2.offsetHeight / 2 + 'px';
+
+    setTimeout(() => {
+        speechBubble.style.display = "none";
+    }, 3000);
+}
 // ... Continue with any other logic or functions
+
