@@ -13,8 +13,6 @@
     </style>
 </head>
 <body>
-    <!-- Desktop Layout -->
-<div class="desktop-only">
     <header class="header">
         <a href="#" class="logo">(: Speech To Email</a>
         <nav class="nav-items">
@@ -23,6 +21,8 @@
       </header>
       <main>
       <div class="container">
+            <!-- Desktop Layout -->
+    <div class="desktop-only">
         <div class="leftContainer">
             <div class="transcriptContainer">
                 <textarea id="transcriptArea"></textarea>
@@ -45,45 +45,37 @@
             <button id="addTranscript" disabled>Add More</button>
         </div>
     </div>
-</main>
 </div>
-</div>
-
 <!-- Mobile Layout -->
 <div class="mobile-only">
-<header class="header">
-    <a href="#" class="logo">(: Speech To Email</a>
-    <nav class="nav-items">
-      <a href="/">Home</a>
-    </nav>
-  </header>
-  <main class="mainContainer">
-  <div class="container">
-    <div class="leftContainer">
-        <div class="transcriptContainer">
-            <textarea id="transcriptArea"></textarea>
-            <div id="speechBubble" style="display: none;">Copied!</div>
+    <div class="MleftContainer">
+        <div class="MtranscriptContainer">
+            <textarea id="MtranscriptArea"></textarea>
+            <div id="MspeechBubble" style="display: none;">Copied!</div>
         </div>
-        <div id="butContainer">
-            <div id="butContainer2">
-            <button id="copyButton">Copy Text</button>
-            <button id="clearButton">Clear</button>
-            <button id="formatText">Format Text</button>
+        <div id="MbutContainer">
+            <div id="MbutContainer2">
+            <button id="McopyButton">Copy Text</button>
+            <button id="MclearButton">Clear</button>
+            <button id="MformatText">Format Text</button>
             </div>
-            <div id="butContainer3">
-                <div id="recContainer" class="recContainer">
-                    <button id="recordButton">Record</button>
+            <div id="MbutContainer3">
+                <div id="MrecContainer" class="MrecContainer">
+                    <button id="MrecordButton">Record</button>
                     
                 </div>
-                <!--<div class="recContainer2">
-                    <button id="addTranscript" disabled>Add More</button>
+                <!--<div class="MrecContainer2">
+                    <button id="MaddTranscript" disabled>Add More</button>
                 </div> -->
                 </div>
         </div>
     </div>
+</div>
 </main>
 </div>
-</div>
+
+
+
 <script src="{{ url_for('static', filename='speechtoemail-script.js') }}"></script>
 </body>
 </html>
